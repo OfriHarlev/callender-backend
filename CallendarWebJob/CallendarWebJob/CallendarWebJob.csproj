@@ -71,6 +71,7 @@
   <ItemGroup>
     <Compile Include="call.cs" />
     <Compile Include="callobj.cs" />
+    <Compile Include="ConferenceTable.cs" />
     <Compile Include="PhoneCall.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

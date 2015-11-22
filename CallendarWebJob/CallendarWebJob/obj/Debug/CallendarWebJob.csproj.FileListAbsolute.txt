@@ -34,3 +34,22 @@
 \\psf\Home\Documents\Hack UCI\callender-backend\CallendarWebJob\CallendarWebJob\obj\Debug\CallendarWebJob.csprojResolveAssemblyReference.cache
 \\psf\Home\Documents\Hack UCI\callender-backend\CallendarWebJob\CallendarWebJob\bin\Debug\RestSharp.dll
 \\psf\Home\Documents\Hack UCI\callender-backend\CallendarWebJob\CallendarWebJob\bin\Debug\RestSharp.xml
+C:\Users\Demo\Desktop\callender-backend\CallendarWebJob\CallendarWebJob\bin\Debug\CallendarWebJob.exe.config
+C:\Users\Demo\Desktop\callender-backend\CallendarWebJob\CallendarWebJob\obj\Debug\CallendarWebJob.exe
+C:\Users\Demo\Desktop\callender-backend\CallendarWebJob\CallendarWebJob\obj\Debug\CallendarWebJob.pdb
+C:\Users\Demo\Desktop\callender-backend\CallendarWebJob\CallendarWebJob\obj\Debug\CallendarWebJob.csproj.App.config
+C:\Users\Demo\Desktop\callender-backend\CallendarWebJob\CallendarWebJob\obj\Debug\CallendarWebJob.csprojResolveAssemblyReference.cache
+C:\Users\Demo\Desktop\callender-backend\CallendarWebJob\CallendarWebJob\bin\Debug\CallendarWebJob.exe
+C:\Users\Demo\Desktop\callender-backend\CallendarWebJob\CallendarWebJob\bin\Debug\CallendarWebJob.pdb
+C:\Users\Demo\Desktop\callender-backend\CallendarWebJob\CallendarWebJob\bin\Debug\Microsoft.WindowsAzure.Mobile.dll
+C:\Users\Demo\Desktop\callender-backend\CallendarWebJob\CallendarWebJob\bin\Debug\Microsoft.WindowsAzure.Mobile.Ext.dll
+C:\Users\Demo\Desktop\callender-backend\CallendarWebJob\CallendarWebJob\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Demo\Desktop\callender-backend\CallendarWebJob\CallendarWebJob\bin\Debug\RestSharp.dll
+C:\Users\Demo\Desktop\callender-backend\CallendarWebJob\CallendarWebJob\bin\Debug\System.Net.Http.Extensions.dll
+C:\Users\Demo\Desktop\callender-backend\CallendarWebJob\CallendarWebJob\bin\Debug\System.Net.Http.Primitives.dll
+C:\Users\Demo\Desktop\callender-backend\CallendarWebJob\CallendarWebJob\bin\Debug\Microsoft.WindowsAzure.Mobile.xml
+C:\Users\Demo\Desktop\callender-backend\CallendarWebJob\CallendarWebJob\bin\Debug\Microsoft.WindowsAzure.Mobile.Ext.xml
+C:\Users\Demo\Desktop\callender-backend\CallendarWebJob\CallendarWebJob\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Demo\Desktop\callender-backend\CallendarWebJob\CallendarWebJob\bin\Debug\RestSharp.xml
+C:\Users\Demo\Desktop\callender-backend\CallendarWebJob\CallendarWebJob\bin\Debug\System.Net.Http.Extensions.xml
+C:\Users\Demo\Desktop\callender-backend\CallendarWebJob\CallendarWebJob\bin\Debug\System.Net.Http.Primitives.xml
