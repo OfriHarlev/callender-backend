@@ -18,8 +18,9 @@ namespace CallendarWebJob
         public static MobileServiceClient MobileService = new MobileServiceClient("https://callendarjs.azure-mobile.net/", "oVQZgOmoEbRwJDmYflgvIRsTQJYvBj27");
         static void Main(string[] args)
         {
-               conferenceCalling();
-            //}
+            conferenceCalling();
+        
+        
             ServicePointManager.ServerCertificateValidationCallback = new RemoteCertificateValidationCallback(
                 delegate
                 {
@@ -60,11 +61,12 @@ namespace CallendarWebJob
                 {
                     if (conferenceResult[i].complete == false && conferenceResult[i].timeToExcute <= DateTime.Now)
                     {
-                        conferencePhone(conferenceResult[i].PhoneNumber, conferenceResult[i].Text, conferenceResult[i].ConferenceId);
+                        conferencePhone(conferenceResult[i].PhoneNumber, conferenceResult[i].Text, conferenceResult[i].ConferenceId, conferenceResult[i].TextMessage);
                         conferenceResult[i].complete = true;
                         MobileService.GetTable<ConferenceTable>().UpdateAsync(conferenceResult[i]).Wait();
                     }
                 }
+                //Console.Write(DateTime.Now);
                 Thread.Sleep(10000);
             }
         }
@@ -72,7 +74,7 @@ namespace CallendarWebJob
         {
             CallTable item = new CallTable();
             item.Id = "1";
-            item.PhoneNumber = "14153356374";
+            item.PhoneNumber = "194924650478";
             item.timeToExcute = DateTime.Now;
             item.Text = "testing";
             item.complete = false;
@@ -125,7 +127,7 @@ namespace CallendarWebJob
 
         }
 
-        static void conferencePhone(string phonenumber, string message, string conferenceId)
+        static void conferencePhone(string phonenumber, string message, string conferenceId, string TextMessage)
         {
             ServicePointManager.ServerCertificateValidationCallback = new RemoteCertificateValidationCallback(
                 delegate
@@ -141,26 +143,42 @@ namespace CallendarWebJob
             var responce = client.Execute(ConferenceCallrequest);//19492465047
             Console.WriteLine(responce);
             callobj test = JsonConvert.DeserializeObject<callobj>(responce.Content);
+
             var Conferencerequest = new RestRequest("v0/LiveCalls/" + test.call.id + "/Actions/JoinConference", Method.POST);
             Conferencerequest.AddHeader("x-api-key", "SncRoqW8Lf4B4xA0nv5MH9tzKHnPfraA");
             Conferencerequest.AddHeader("Content-Type", "application/json");
             Conferencerequest.AddParameter("application/json", "{\"message\":\"" + message + "\",\"conference_name\":\"" + conferenceId + "\"}", ParameterType.RequestBody);//16024784411
             var responce2 = client.Execute(Conferencerequest);
-        }
 
+            var Statusrequest = new RestRequest("v0/LiveCalls/" + test.call.id);
+            Statusrequest.AddHeader("x-api-key", "SncRoqW8Lf4B4xA0nv5MH9tzKHnPfraA");
+            Statusrequest.AddHeader("Content-Type", "application/json");
+            var responce3 = client.Execute(RequestStatus);
+            Console.Write(responce3.RequestStatus);
+   
+            if ((responce3).ToString() != "Completed")
+            {
+                var Missedrequest = new RestRequest("v0/Dials/SMS", Method.POST);
+                Missedrequest.AddHeader("x-api-key", "SncRoqW8Lf4B4xA0nv5MH9tzKHnPfraA");
+                Missedrequest.AddHeader("Content-Type", "application/json");
+                Missedrequest.AddParameter("application/json", "{\"call\":{\"no\":\"" + phonenumber + "\",\"caller_id_no\":\"19494316234\"},\"message\":\"" + TextMessage + "\"}", ParameterType.RequestBody);
+                var Missedresponce = client.Execute(Missedrequest);
+            }
+            }
+        
         static void conferenceCalling()
         {
             string[] numbers;
-            numbers = new string[4] { "14153356374", "14153126072", "18055011569", "19257328555" };
+            //numbers = new string[2] {"18055011569", "19492465047" };// "14153126072"
             DateTime s = DateTime.Now;
-            for (int i = 0; i < 4; i++)
+            //for (int i = 0; i < 2; i++)
             {
                 ConferenceTable item = new ConferenceTable();
                 item.ConferenceId = "1243556312";
-
-                TimeSpan ts = new TimeSpan(10, 30 + i, 0);
+                item.TextMessage = "You missed a conference call.";
+                TimeSpan ts = new TimeSpan(10, 30, 0);
                // item.Id = i.ToString();
-                item.PhoneNumber = numbers[i];
+                item.PhoneNumber = "19492465047";
                 item.timeToExcute = s.Date;
                 item.Text = "Say hi, you are in a conference call.";
                 item.complete = false;
